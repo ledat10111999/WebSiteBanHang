@@ -611,6 +611,7 @@
     <Content Include="Views\DemoAjax\LoadSanPham.cshtml" />
     <Content Include="Views\SanPham\SanPhamStyle1Partial.cshtml" />
     <Content Include="Views\SanPham\SanPhamStyle2Partial.cshtml" />
+    <Content Include="Views\Home\MenuPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

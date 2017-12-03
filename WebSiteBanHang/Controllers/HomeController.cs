@@ -41,5 +41,12 @@ namespace WebSiteBanHang.Controllers
 
             return View();
         }
+
+
+        public ActionResult MenuPartial()
+        {
+            var lstSP = db.SanPhams;
+            return PartialView(lstSP);
+        }
     }
 }
