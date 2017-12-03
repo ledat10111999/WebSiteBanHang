@@ -198,6 +198,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DemoAjaxController.cs" />
     <Compile Include="Controllers\DemoCssController.cs" />
     <Compile Include="Controllers\DemoJQueryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -476,6 +477,7 @@
     <Content Include="Content\HinhAnhSP\SQL.txt" />
     <Content Include="Content\HinhAnhSP\TOSHIBA-SYM0510.png" />
     <Content Include="Content\images\1.jpg" />
+    <Content Include="Content\images\19.gif" />
     <Content Include="Content\images\b1.jpg" />
     <Content Include="Content\images\b2.jpg" />
     <Content Include="Content\images\b3.jpg" />
@@ -553,6 +555,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -606,6 +610,8 @@
     <Content Include="Views\SanPham\SanPhamPartial.cshtml" />
     <Content Include="Views\SanPham\SanPham1.cshtml" />
     <Content Include="Views\SanPham\SanPham2.cshtml" />
+    <Content Include="Views\DemoAjax\DemoAjax.cshtml" />
+    <Content Include="Views\DemoAjax\LoadSanPham.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
