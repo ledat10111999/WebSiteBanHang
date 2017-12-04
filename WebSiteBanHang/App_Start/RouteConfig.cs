@@ -13,6 +13,13 @@ namespace WebSiteBanHang
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // Cấu hình đường dẫn thân thiện cho XemChiTiet
+            routes.MapRoute(
+                name: "XemChiTiet",
+                url: "{tensp}-{id}",
+                defaults: new { controller = "SanPham", action = "XemChiTiet", id = UrlParameter.Optional }
+            );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

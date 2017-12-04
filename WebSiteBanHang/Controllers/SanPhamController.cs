@@ -25,7 +25,7 @@ namespace WebSiteBanHang.Controllers
         }
 
         //Xây dựng trang xem chi tiết
-        public ActionResult XemChiTiet(int? id)
+        public ActionResult XemChiTiet(int? id, string tensp)
         {
             if (id == null)
             {
