@@ -20,6 +20,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900" rel="stylesheet" type="text/css"><!--//fonts-->
     <!-- start menu -->
+    
     <link href="~/Content/css/memenu.css" rel="stylesheet" type="text/css" media="all">
     <script type="text/javascript" src="~/Content/js/memenu.js"></script>
     <script>$(document).ready(function () { $(".memenu").memenu(); });</script>
@@ -30,7 +31,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
     <!--header-->
     <div class="header">
-        <div class="header-top">
+        @Html.Partial("~/Views/Layout/HeaderTopPartial.cshtml")
+        @*<div class="header-top">
             <div class="container">
                 <div class="search">
                     <form>
@@ -58,7 +60,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <div class="clearfix"> </div>
             </div>
-        </div>
+        </div>*@
         <div class="container">
             <div class="head-top">
                 <div class="logo">

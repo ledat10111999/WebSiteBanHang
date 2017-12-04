@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-    <title>New Store A Ecommerce Category Flat Bootstarp Resposive Website Template | Signle :: w3layouts</title>
+    <title>New Store A Ecommerce Category Flat Bootstarp Resposive Website Template | Products :: w3layouts</title>
     <link href="~/Content/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="~/Content/js/jquery.min.js"></script>
@@ -27,15 +27,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="~/Content/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
     <script type="text/javascript" src="~/Content/js/memenu.js"></script>
     <script>$(document).ready(function(){$(".memenu").memenu();});</script>
-
-
-    <script src="~/Content/js/main.js"></script>
     <script src="~/Content/js/simpleCart.min.js"> </script>
 </head>
 <body>
     <!--header-->
     <div class="header">
-        <div class="header-top">
+        @Html.Partial("~/Views/Layout/HeaderTopPartial.cshtml")
+        @*<div class="header-top">
             <div class="container">
                 <div class="search">
                     <form>
@@ -67,7 +65,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <div class="clearfix"> </div>
             </div>
-        </div>
+        </div>*@
         <div class="container">
             <div class="head-top">
                 <div class="logo">
@@ -88,7 +86,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="container">
             <div class="col-md-3 product-price">
 
-                <div class=" rsidebar span_1_of_left">
+                <div class="rsidebar span_1_of_left">
                     <div class="of-left">
                         <h3 class="cate">Categories</h3>
                     </div>
@@ -184,9 +182,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <li><a href="#">lorem</a></li>
                             <li><a href="#">dress</a></li>
 
-                            <div class="clearfix"> </div>
+                            
                         </ul>
-
+                        <div class="clearfix"> </div>
                     </div>
 
                 </div>
@@ -196,7 +194,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h3 class="best">Best Sellers</h3>
                     </div>
                     <div class="product-go">
-                        <div class=" fashion-grid">
+                        <div class="fashion-grid">
                             <a href="#"><img class="img-responsive " src="~/Content/images/p1.jpg" alt=""></a>
 
                         </div>
@@ -208,13 +206,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </a>
                             </h6>
 
-                            <span class=" price-in1"> $40.00</span>
+                            <span class="price-in1"> $40.00</span>
                         </div>
 
                         <div class="clearfix"> </div>
                     </div>
                     <div class="product-go">
-                        <div class=" fashion-grid">
+                        <div class="fashion-grid">
                             <a href="#"><img class="img-responsive " src="~/Content/images/p2.jpg" alt=""></a>
 
                         </div>
@@ -226,14 +224,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </a>
                             </h6>
 
-                            <span class=" price-in1"> $40.00</span>
+                            <span class="price-in1"> $40.00</span>
                         </div>
 
                         <div class="clearfix"> </div>
                     </div>
 
                 </div>
-                <div class=" per1">
+                <div class="per1">
                     <a href="#">
                         <img class="img-responsive" src="~/Content/images/pro.jpg" alt="">
                         <div class="six1">

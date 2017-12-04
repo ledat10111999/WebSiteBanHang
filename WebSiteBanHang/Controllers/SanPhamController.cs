@@ -42,7 +42,12 @@ namespace WebSiteBanHang.Controllers
 
         public ActionResult SanPham(int? MaLoaiSP, int? MaNSX)
         {
-            if(MaLoaiSP==null || MaNSX == null)
+            //Chặn không cho xem nếu không đăng nhập
+            if (Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            if (MaLoaiSP==null || MaNSX == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }

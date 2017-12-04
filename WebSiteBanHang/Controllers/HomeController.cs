@@ -80,5 +80,30 @@ namespace WebSiteBanHang.Controllers
             lstCauHoi.Add("Nghề nghiệp của bạn là gì?");
             return lstCauHoi;
         }
+
+        //Xây dựng Action đăng nhập
+        [HttpPost]
+        public ActionResult DangNhap(FormCollection f)
+        {
+            //Kiểm tra tên đăng nhập và mật khẩu
+            string sTaiKhoan = f["txtTaiKhoan"].ToString();
+            string sMatKhau = f["txtMatKhau"].ToString();
+
+            ThanhVien tv = db.ThanhViens.SingleOrDefault(n=>n.TaiKhoan==sTaiKhoan && n.MatKhau==sMatKhau);
+
+            if (tv != null)
+            {
+                Session["TaiKhoan"] = tv;
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Dangxuat()
+        {
+            //Gán về null
+            Session["TaiKhoan"] = null;
+            return RedirectToAction("Index");
+        }
     }
 }
