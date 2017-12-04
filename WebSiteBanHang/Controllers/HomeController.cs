@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebSiteBanHang.Models;
+using CaptchaMvc.HtmlHelpers;
+using CaptchaMvc;
 
 namespace WebSiteBanHang.Controllers
 {
@@ -45,8 +47,38 @@ namespace WebSiteBanHang.Controllers
 
         public ActionResult MenuPartial()
         {
-            var lstSP = db.SanPhams;
+            var lstSP = db.SanPhams; 
             return PartialView(lstSP);
+        }
+        [HttpGet]
+        public ActionResult DangKy()
+        {
+            ViewBag.CauHoi = new SelectList(LoadCauHoi());
+            return View();
+        }
+        [HttpPost]
+        public ActionResult DangKy(ThanhVien tv, FormCollection f)
+        {
+            ViewBag.CauHoi = new SelectList(LoadCauHoi());
+            //Kiểm tra Captcha hợp lệ
+            if (this.IsCaptchaValid("Captcha is not valid"))
+            {
+                ViewBag.ThongBao = "Thêm thành công";
+                db.ThanhViens.Add(tv);
+                db.SaveChanges();
+                return View();
+            }
+            
+            ViewBag.ThongBao = "Sai mã Captcha";
+            return View();
+        }
+        public List<string> LoadCauHoi()
+        {
+            List<string> lstCauHoi = new List<string>();
+            lstCauHoi.Add("Con vật mà bạn yêu thích?");
+            lstCauHoi.Add("Ca sĩ mà bạn yêu thích?");
+            lstCauHoi.Add("Nghề nghiệp của bạn là gì?");
+            return lstCauHoi;
         }
     }
 }
