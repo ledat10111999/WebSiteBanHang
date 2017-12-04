@@ -39,6 +39,10 @@ namespace WebSiteBanHang.Models
         public Nullable<int> MaNSX { get; set; }
         public Nullable<int> MaLoaiSP { get; set; }
         public Nullable<bool> DaXoa { get; set; }
+        public string HinhAnh1 { get; set; }
+        public string HinhAnh2 { get; set; }
+        public string HinhAnh3 { get; set; }
+        public string HinhAnh4 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BinhLuan> BinhLuans { get; set; }
