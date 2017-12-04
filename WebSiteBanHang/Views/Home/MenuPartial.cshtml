@@ -22,7 +22,7 @@
                                         {
                                             if (item.Key != null)
                                             {
-                                                <li><a href="products.html">@item.Key.TenNSX</a></li>
+                                                <li><a href="@Url.Action("SanPham","SanPham",new { @MaLoaiSP=groupItem.Key.MaLoaiSP,@MaNSX=item.Key.MaNSX})">@item.Key.TenNSX</a></li>
                                             }
                                         }
                                     </ul>
@@ -131,7 +131,7 @@
                                         {
                                             if (item.Key != null)
                                             {
-                                                <li><a href="products.html">@item.Key.TenNSX</a></li>
+                                                <li><a href="@Url.Action("SanPham","SanPham",new { @MaLoaiSP=groupItem.Key.MaLoaiSP,@MaNSX=item.Key.MaNSX})">@item.Key.TenNSX</a></li>
                                             }
                                         }
                                     </ul>

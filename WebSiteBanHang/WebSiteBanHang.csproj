@@ -614,6 +614,7 @@
     <Content Include="Views\Home\MenuPartial.cshtml" />
     <Content Include="Views\Layout\ProductLayout.cshtml" />
     <Content Include="Views\SanPham\XemChiTiet.cshtml" />
+    <Content Include="Views\SanPham\SanPham.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
