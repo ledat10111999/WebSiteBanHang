@@ -27,6 +27,8 @@ namespace WebSiteBanHang.Models
         public Nullable<bool> DaThanhToan { get; set; }
         public Nullable<int> MaKH { get; set; }
         public Nullable<int> UuDai { get; set; }
+        public Nullable<bool> DaHuy { get; set; }
+        public Nullable<bool> DaXoa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietDonDatHang> ChiTietDonDatHangs { get; set; }
