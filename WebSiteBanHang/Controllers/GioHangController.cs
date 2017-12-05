@@ -111,6 +111,61 @@ namespace WebSiteBanHang.Controllers
             return View(lstGioHang);
         }
 
+
+        //Chỉnh sửa giỏ hàng
+        public ActionResult SuaGioHang(int maSP)
+        {
+            // Kiểm tra giỏ hàng tồn tại hay chưa
+            if (Session["GioHang"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            //Kiểm tra sp có trong csdl 
+            SanPham sp = db.SanPhams.SingleOrDefault(n => n.MaSP == maSP);
+            if (sp == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            // Lấy list giỏ hàng từ Session
+            List<itemGioHang> lstGioHang = LayGioHang();
+            // Kiểm tra sp sửa có tồn tại trong list hay không
+            itemGioHang spCheck = lstGioHang.SingleOrDefault(n => n.MaSP == maSP);
+            if(spCheck == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            // Gán lstGioHang qua ViewBag để tạo giao diện chỉnh sửa
+            ViewBag.GioHang = lstGioHang;
+
+
+            //Nếu tồn tại rồi
+            return View(spCheck);
+        }
+
+        // Chức năng xử lý cập nhật giỏ hàng CapNhatGioHang
+        // nhận 1 biến itemGioHang
+        [HttpPost]
+        public ActionResult CapNhatGioHang(itemGioHang itemGH)
+        {
+            // Kiểm tra tồn kho
+            SanPham spCheck = db.SanPhams.Single(n => n.MaSP == itemGH.MaSP);
+            if(spCheck.SoLuongTon< itemGH.SoLuong)
+            {
+                return View("ThongBao");
+            }
+            // Cập nhật số lượng trong session giỏ hàng
+            List<itemGioHang> lstGioHang = LayGioHang();
+            // tìm itemGH trong lstGioHang
+            itemGioHang itemGHUpdate = lstGioHang.Find(n => n.MaSP == itemGH.MaSP);
+            itemGHUpdate.SoLuong = itemGH.SoLuong;
+            // Cập nhật số lượng --> cập nhật thành tiền
+            itemGHUpdate.ThanhTien = itemGHUpdate.DonGia * itemGHUpdate.SoLuong;
+
+
+            //return RedirectToAction("SuaGioHang",new { @maSP = itemGHUpdate.MaSP});
+            return RedirectToAction("XemGioHang");
+        }
         
     }
 }

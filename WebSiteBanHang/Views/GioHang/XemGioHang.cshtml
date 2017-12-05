@@ -50,6 +50,7 @@ else
                 <td>Số lượng</td>
                 <td>Đơn giá</td>
                 <td>Thành tiền</td>
+                
             </tr>
             @foreach (var item in Model)
             {
@@ -60,6 +61,8 @@ else
                     <td>@item.SoLuong</td>
                     <td>@item.DonGia.ToString("#,##") đồng</td>
                     <td>@item.ThanhTien.ToString("#,##") đồng</td>
+                    @*Truyền tham số MaSP --- Tạo nút sửa link qua trang SuaGioHang*@
+                    <td>@Html.ActionLink("Sửa", "SuaGioHang", new { @maSP =item.MaSP})</td>
                 </tr>
             }
         </table>

@@ -2,18 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using WebSiteBanHang.Models;
 namespace WebSiteBanHang.Services
 {
-    public class GioHangService
+    public class GioHangService : Controller
     {
-        //public List<GioHang> LayGioHang()
+        //public List<itemGioHang> LayGioHang()
         //{
-        //    List<GioHang> lstGioHang = Session["GioHang"] as List<GioHang>;
+        //    List<itemGioHang> lstGioHang = Session["GioHang"] as List<itemGioHang>;
         //    if (lstGioHang == null)
         //    {
         //        //Nếu session bằng  null thì khởi tạo gio hàng
-        //        lstGioHang = new List<GioHang>();
+        //        lstGioHang = new List<itemGioHang>();
         //        // Gán lại giỏ hàng cho session
         //        Session["GioHang"] = lstGioHang;
         //    }
