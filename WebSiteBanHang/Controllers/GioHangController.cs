@@ -166,6 +166,35 @@ namespace WebSiteBanHang.Controllers
             //return RedirectToAction("SuaGioHang",new { @maSP = itemGHUpdate.MaSP});
             return RedirectToAction("XemGioHang");
         }
+
+        public ActionResult XoaGioHang(int maSP)
+        {
+            // Kiểm tra giỏ hàng tồn tại hay chưa
+            if (Session["GioHang"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            //Kiểm tra sp có trong csdl 
+            SanPham sp = db.SanPhams.SingleOrDefault(n => n.MaSP == maSP);
+            if (sp == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            // Lấy list giỏ hàng từ Session
+            List<itemGioHang> lstGioHang = LayGioHang();
+            // Kiểm tra sp sửa có tồn tại trong list hay không
+            itemGioHang spCheck = lstGioHang.SingleOrDefault(n => n.MaSP == maSP);
+            if (spCheck == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            //Xóa item trong giỏ hàng
+            lstGioHang.Remove(spCheck);
+
+            return RedirectToAction("XemGioHang");
+
+        }
         
     }
 }
