@@ -205,6 +205,7 @@
     <Compile Include="Controllers\DemoAjaxController.cs" />
     <Compile Include="Controllers\DemoCssController.cs" />
     <Compile Include="Controllers\DemoJQueryController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhachHangController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -225,6 +226,7 @@
     <Compile Include="Models\DonDatHang.cs">
       <DependentUpon>QuanLyBanHangModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GioHang.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\KhachHang.cs">
       <DependentUpon>QuanLyBanHangModel.tt</DependentUpon>
@@ -623,6 +625,8 @@
     <Content Include="Views\Home\DangKy.cshtml" />
     <Content Include="Views\Layout\HeaderTopPartial.cshtml" />
     <Content Include="Views\Home\DangKy1.cshtml" />
+    <Content Include="Views\GioHang\XemGioHang.cshtml" />
+    <Content Include="Views\GioHang\GioHangPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
