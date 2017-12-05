@@ -5,7 +5,7 @@ using System.Web;
 
 namespace WebSiteBanHang.Models
 {
-    public class GioHang
+    public class itemGioHang
     {
         public int MaSP { get; set; }
         public string TenSP { get; set; }
@@ -14,12 +14,12 @@ namespace WebSiteBanHang.Models
         public decimal ThanhTien { get; set; }
         public string HinhAnh { get; set; }
 
-        public GioHang()
+        public itemGioHang()
         {
 
         }
 
-        public GioHang(int iMaSP)
+        public itemGioHang(int iMaSP)
         {
             using (QuanLyBanHangEntities db = new QuanLyBanHangEntities())
             {
@@ -28,11 +28,13 @@ namespace WebSiteBanHang.Models
                 this.TenSP = sp.TenSP;
                 this.DonGia = sp.DonGia.Value;
                 this.HinhAnh = sp.HinhAnh;
+                //khởi tạo thì sl = 1
+                this.SoLuong = 1;
                 this.ThanhTien = DonGia * SoLuong;
 
             }
         }
-        public GioHang(int iMaSP,int sl)
+        public itemGioHang(int iMaSP,int sl)
         {
             using (QuanLyBanHangEntities db = new QuanLyBanHangEntities())
             {

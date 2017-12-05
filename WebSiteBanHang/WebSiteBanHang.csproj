@@ -226,7 +226,7 @@
     <Compile Include="Models\DonDatHang.cs">
       <DependentUpon>QuanLyBanHangModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\GioHang.cs" />
+    <Compile Include="Models\itemGioHang.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\KhachHang.cs">
       <DependentUpon>QuanLyBanHangModel.tt</DependentUpon>
@@ -270,6 +270,7 @@
       <DependentUpon>QuanLyBanHangModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\GioHangService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -627,6 +628,7 @@
     <Content Include="Views\Home\DangKy1.cshtml" />
     <Content Include="Views\GioHang\XemGioHang.cshtml" />
     <Content Include="Views\GioHang\GioHangPartial.cshtml" />
+    <Content Include="Views\GioHang\ThongBao.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

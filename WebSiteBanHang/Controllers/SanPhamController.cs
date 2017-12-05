@@ -43,14 +43,14 @@ namespace WebSiteBanHang.Controllers
         public ActionResult SanPham(int? MaLoaiSP, int? MaNSX)
         {
             //Chặn không cho xem nếu không đăng nhập
-            if (Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
-            {
-                return RedirectToAction("Index", "Home");
-            }
-            if (MaLoaiSP==null || MaNSX == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            //if (Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
+            //{
+            //    return RedirectToAction("Index", "Home");
+            //}
+            //if (MaLoaiSP==null || MaNSX == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
             // Load sản phẩm theo 2 tiêu chí là Mã loại SP và Mã nhà sản xuất ( trong bản SanPham)
             var lstSP = db.SanPhams.Where(n=>n.MaLoaiSP == MaLoaiSP && n.MaNSX ==MaNSX);
             if (lstSP.Count() == 0)
