@@ -621,6 +621,7 @@
     <Content Include="Views\SanPham\SanPham.cshtml" />
     <Content Include="Views\Home\DangKy.cshtml" />
     <Content Include="Views\Layout\HeaderTopPartial.cshtml" />
+    <Content Include="Views\Home\DangKy1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

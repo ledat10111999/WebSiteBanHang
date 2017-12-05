@@ -24,7 +24,7 @@
                 else
                 {
                 <li><a class="lock" href="#" id="btnDangNhap">Đăng nhập</a></li>
-                <li><a class="lock" href="register.html">Đăng ký</a></li>
+                <li><a class="lock" href="@Url.Action("Dangky","Home")">Đăng ký</a></li>
                 }
 
                 <li></li>
@@ -55,11 +55,12 @@
         </div>
         <h2>Đăng nhập</h2>
         <div class="form-info">
-            @using (Html.BeginForm("DangNhap", "Home"))
+            @using (Ajax.BeginForm("DangNhap", "Home",new AjaxOptions { InsertionMode=InsertionMode.Replace,UpdateTargetId="ThongBao"}))
             {
                 <input class="email TaiKhoan" name="txtTaiKhoan" placeholder="Tên đăng nhập" required="" type="text">
                 <input class="password MatKhau" name="txtMatKhau" placeholder="Mật khẩu" required="" type="password">
                 <p><a href="#">Quên mật khẩu?</a></p>
+                    <h3 style="font-weight:bold;color:red;text-align:left" id="ThongBao"></h3>
                 <ul class="login-buttons">
                     <li><input value="Đăng nhập" type="submit" id="btnDangNhap1"></li>
                     <li><a href="#" class="hvr-sweep-to-left">Đăng ký</a></li>

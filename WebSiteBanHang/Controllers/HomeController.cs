@@ -56,6 +56,11 @@ namespace WebSiteBanHang.Controllers
             ViewBag.CauHoi = new SelectList(LoadCauHoi());
             return View();
         }
+
+        public ActionResult DangKy1()
+        {
+            return View();
+        }
         [HttpPost]
         public ActionResult DangKy(ThanhVien tv, FormCollection f)
         {
@@ -63,9 +68,17 @@ namespace WebSiteBanHang.Controllers
             //Kiểm tra Captcha hợp lệ
             if (this.IsCaptchaValid("Captcha is not valid"))
             {
-                ViewBag.ThongBao = "Thêm thành công";
-                db.ThanhViens.Add(tv);
-                db.SaveChanges();
+                if (ModelState.IsValid)
+                {
+                    ViewBag.ThongBao = "Thêm thành công";
+                    db.ThanhViens.Add(tv);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    ViewBag.ThongBao = "Thêm thất bại";
+                }
+                
                 return View();
             }
             
@@ -94,9 +107,9 @@ namespace WebSiteBanHang.Controllers
             if (tv != null)
             {
                 Session["TaiKhoan"] = tv;
-                return RedirectToAction("Index");
+                return Content("<script>window.location.reload()</script>");
             }
-            return RedirectToAction("Index");
+            return Content("Tài khoản hoặc mật khẩu không đúng!");
         }
 
         public ActionResult Dangxuat()

@@ -8,14 +8,18 @@
 }
 <div class="DangKy">
     <div class="register">
-        <h1>Đăng kí thành viên</h1>
         @using (Html.BeginForm())
         {
+            @Html.AntiForgeryToken()
+            <h1>Đăng kí thành viên</h1>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="col-md-5 register-top-grid">
                 <h3>Thông tin cá nhân</h3>
                 <div>
                     <span>Tài khoản</span>
-                    @Html.TextBox("TaiKhoan")
+                    @Html.TextBoxFor(model=>model.TaiKhoan)
+                    @Html.ValidationMessageFor(model=>model.TaiKhoan)
                 </div>
                 <div>
                     <span>Họ tên</span>
