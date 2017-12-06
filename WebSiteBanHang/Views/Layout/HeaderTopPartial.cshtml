@@ -7,10 +7,12 @@
 <div class="header-top">
     <div class="container">
         <div class="search">
-            <form>
-                <input type="text" value="Search " onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
-                <input type="submit" value="Go">
-            </form>
+            @*Tạo Form tìm kiếm*@
+            @using (Html.BeginForm("LayTuKhoaTimKiem", "TimKiem"))
+            {
+                <input type="text" name="sTuKhoa" placeholder="Nhập tên sản phẩm ..." />
+                <input type="submit" value="Tìm kiếm">
+            }
         </div>
         <div class="header-left">
             <ul>

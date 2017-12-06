@@ -58,6 +58,10 @@ namespace WebSiteBanHang.Controllers
                 return HttpNotFound();
             }
             //Thực hiện chức năng phân trang
+            if(Request.HttpMethod != "GET")
+            {
+                page = 1;
+            }
             //Tạo biến số sp trên trang
             int PageSize = 3;
             //Tạo biến thứ 2 : Số trang hiện tại

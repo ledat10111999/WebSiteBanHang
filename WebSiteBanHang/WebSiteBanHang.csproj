@@ -218,6 +218,7 @@
     <Compile Include="Controllers\KhachHangController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
+    <Compile Include="Controllers\TimKiemController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -639,6 +640,7 @@
     <Content Include="Views\GioHang\GioHangPartial.cshtml" />
     <Content Include="Views\GioHang\ThongBao.cshtml" />
     <Content Include="Views\GioHang\SuaGioHang.cshtml" />
+    <Content Include="Views\TimKiem\KQTimKiem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
