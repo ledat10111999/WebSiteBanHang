@@ -195,6 +195,43 @@ namespace WebSiteBanHang.Controllers
             return RedirectToAction("XemGioHang");
 
         }
+
+        //Xây dựng chức năng đặt hàng
+        public ActionResult DatHang()
+        {
+            // Kiểm tra giỏ hàng tồn tại hay chưa
+            if (Session["GioHang"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            //Thêm đơn hàng
+            DonDatHang ddh = new DonDatHang();
+            ddh.NgayDat = DateTime.Now;
+            ddh.TinhTrangGiaoHang = false;
+            ddh.DaThanhToan = false;
+            ddh.UuDai = 0;
+            ddh.DaHuy = false;
+            ddh.DaXoa = false;
+            db.DonDatHangs.Add(ddh);
+            db.SaveChanges();
+            // Thêm chi tiết đơn hàng
+            List<itemGioHang> lstGioHang = LayGioHang();
+            foreach(var item in lstGioHang)
+            {
+                ChiTietDonDatHang ctdh = new ChiTietDonDatHang();
+                ctdh.MaDDH = ddh.MaDDH;
+                ctdh.TenSP = item.TenSP;
+                ctdh.MaSP = item.MaSP;
+                ctdh.SoLuong = item.SoLuong;
+                ctdh.DonGia = item.DonGia;
+                db.ChiTietDonDatHangs.Add(ctdh);
+            }
+            db.SaveChanges();
+            Session["GioHang"] = null;
+            return RedirectToAction("XemGioHang");
+
+        }
         
     }
 }

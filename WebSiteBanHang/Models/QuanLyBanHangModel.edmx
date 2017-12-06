@@ -39,7 +39,7 @@
           <Key>
             <PropertyRef Name="MaDDH" />
           </Key>
-          <Property Name="MaDDH" Type="int" Nullable="false" />
+          <Property Name="MaDDH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NgayDat" Type="datetime" />
           <Property Name="TinhTrangGiaoHang" Type="bit" />
           <Property Name="NgayGiao" Type="datetime" />
@@ -487,7 +487,7 @@
           <Key>
             <PropertyRef Name="MaDDH" />
           </Key>
-          <Property Name="MaDDH" Type="Int32" Nullable="false" />
+          <Property Name="MaDDH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NgayDat" Type="DateTime" Precision="3" />
           <Property Name="TinhTrangGiaoHang" Type="Boolean" />
           <Property Name="NgayGiao" Type="DateTime" Precision="3" />
@@ -779,7 +779,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
