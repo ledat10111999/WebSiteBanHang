@@ -197,16 +197,36 @@ namespace WebSiteBanHang.Controllers
         }
 
         //Xây dựng chức năng đặt hàng
-        public ActionResult DatHang()
+        public ActionResult DatHang(KhachHang kh)
         {
             // Kiểm tra giỏ hàng tồn tại hay chưa
             if (Session["GioHang"] == null)
             {
                 return RedirectToAction("Index", "Home");
             }
-
+            KhachHang khang = new KhachHang();
+            if(Session["TaiKhoan"] == null)
+            {
+                //Thêm kh vào bảng KhachHang ...khi chưa đăng nhập
+                khang = kh;
+                db.KhachHangs.Add(khang);
+                db.SaveChanges();
+            }
+            else
+            {
+                // Thêm kh bằng session Taikhoan
+                ThanhVien tv = Session["TaiKhoan"] as ThanhVien;
+                khang.TenKH = tv.HoTen;
+                khang.DiaChi = tv.DiaChi;
+                khang.Email = tv.Email;
+                khang.SoDienThoai = tv.SoDienThoai;
+                khang.MaThanhVien = tv.MaThanhVien;
+                db.KhachHangs.Add(khang);
+                db.SaveChanges();
+            }
             //Thêm đơn hàng
             DonDatHang ddh = new DonDatHang();
+            ddh.MaKH = khang.MaKH;
             ddh.NgayDat = DateTime.Now;
             ddh.TinhTrangGiaoHang = false;
             ddh.DaThanhToan = false;
