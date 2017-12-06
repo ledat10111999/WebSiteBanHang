@@ -1,5 +1,6 @@
 ﻿@using WebSiteBanHang.Models;
-@model IEnumerable<SanPham>
+@using PagedList.Mvc;
+@model PagedList.IPagedList<SanPham>
 @{
     ViewBag.Title = "SanPham";
     Layout = "~/Views/Layout/ProductLayout.cshtml";
@@ -26,5 +27,9 @@
         }
         <div class="clearfix"> </div>
     </div>
+</div>
+<div class="dlink">
+    Trang @(Model.PageCount<Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("SanPham",new { @page = page ,@MaLoaiSP=ViewBag.MaLoaiSP,@MaNSX=ViewBag.MaNSX}))
 </div>
 

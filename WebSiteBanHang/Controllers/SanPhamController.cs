@@ -5,7 +5,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebSiteBanHang.Models;
-
+using PagedList;
 namespace WebSiteBanHang.Controllers
 {
     public class SanPhamController : Controller
@@ -40,7 +40,7 @@ namespace WebSiteBanHang.Controllers
             return View(sp);
         }
 
-        public ActionResult SanPham(int? MaLoaiSP, int? MaNSX)
+        public ActionResult SanPham(int? MaLoaiSP, int? MaNSX,int? page)
         {
             //Chặn không cho xem nếu không đăng nhập
             //if (Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
@@ -57,7 +57,17 @@ namespace WebSiteBanHang.Controllers
             {
                 return HttpNotFound();
             }
-            return View(lstSP);
+            //Thực hiện chức năng phân trang
+            //Tạo biến số sp trên trang
+            int PageSize = 3;
+            //Tạo biến thứ 2 : Số trang hiện tại
+            int PageNumber = (page ?? 1);
+            ViewBag.MaLoaiSP = MaLoaiSP;
+            ViewBag.MaNSX = MaNSX;
+
+            //return View(lstSP);
+            // trả về dạng list đã sắp xếp
+            return View(lstSP.OrderBy(n => n.MaSP).ToPagedList(PageNumber, PageSize));
         }
     }
 }
