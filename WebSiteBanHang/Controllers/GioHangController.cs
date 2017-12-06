@@ -252,6 +252,53 @@ namespace WebSiteBanHang.Controllers
             return RedirectToAction("XemGioHang");
 
         }
-        
+
+
+        // Thêm giỏ hàng Ajax
+        public ActionResult ThemGioHangAjax(int MaSP, string strURL)
+        {
+            // Kiểm tra trong csdl 
+            SanPham sp = db.SanPhams.SingleOrDefault(n => n.MaSP == MaSP);
+            if (sp == null)
+            {
+                //Trả về trang đường dẫn không hợp lệ
+                Response.StatusCode = 404;
+                return null;
+            }
+            // nếu != null thì Lấy giỏ hàng
+            List<itemGioHang> lstGioHang = LayGioHang();
+            // Xét trường hợp sản phẩm được chọn đã có trong giỏ hàng -> tăng số lượng và cập nhật thành tiền
+            itemGioHang spCheck = lstGioHang.SingleOrDefault(n => n.MaSP == MaSP);
+            if (spCheck != null)
+            {
+                // Kiểm tra số lượng tồn kho
+                if (spCheck.SoLuong > sp.SoLuongTon)
+                {
+                    // trả về thông báo hết hàng
+                    return Content("<script>alert(\"Sản phẩm đã hết hàng\")</script>");
+                }
+                spCheck.SoLuong++;
+                spCheck.ThanhTien = spCheck.SoLuong * spCheck.DonGia;
+                // trả về trang URL hiện tại
+                //return Redirect(strURL);
+                // Trả về PartialView GioHangPartial --> cập nhật lại ViewBag
+                ViewBag.TongTien = TinhTongTien();
+                ViewBag.TongSoLuong = TinhTongSoLuong();
+                return PartialView("GioHangPartial");
+            } 
+            // nếu sp không có trong giỏ hàng -> tạo sp theo MaSP mới rồi add vào giỏ hàng hiện tại
+            itemGioHang itemGH = new itemGioHang(MaSP);
+            // Kiểm tra số lượng tồn kho
+            if (itemGH.SoLuong > sp.SoLuongTon)
+            {
+                // trả về thông báo hết hàng
+                return Content("<script>alert(\"Sản phẩm đã hết hàng\")</script>");
+            }
+            lstGioHang.Add(itemGH);
+            ViewBag.TongTien = TinhTongTien();
+            ViewBag.TongSoLuong = TinhTongSoLuong();
+            return PartialView("GioHangPartial");
+
+        }
     }
 }
