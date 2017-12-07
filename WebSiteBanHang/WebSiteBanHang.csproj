@@ -210,6 +210,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\DemoAjaxController.cs" />
     <Compile Include="Controllers\DemoCssController.cs" />
     <Compile Include="Controllers\DemoJQueryController.cs" />
@@ -642,6 +643,8 @@
     <Content Include="Views\GioHang\SuaGioHang.cshtml" />
     <Content Include="Views\TimKiem\KQTimKiem.cshtml" />
     <Content Include="Views\TimKiem\KQTimKiemPartial.cshtml" />
+    <Content Include="Views\Layout\AdminLayout.cshtml" />
+    <Content Include="Views\Admin\TrangChu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -654,7 +657,11 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Content\Layouts\css\" />
+    <Folder Include="Content\Layouts\images\" />
+    <Folder Include="Content\Layouts\js\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
