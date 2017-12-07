@@ -218,6 +218,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhachHangController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\QuanLySanPhamController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
     <Compile Include="Controllers\TimKiemController.cs" />
     <Compile Include="Global.asax.cs">
@@ -543,6 +544,8 @@
     <Content Include="Content\js\memenu.js" />
     <Content Include="Content\js\responsiveslides.min.js" />
     <Content Include="Content\js\simpleCart.min.js" />
+    <Content Include="Content\Layouts\js\jquery-ui-1.12.1.custom\jquery-ui.css" />
+    <Content Include="Content\Layouts\js\jquery-ui-1.12.1.custom\jquery-ui.js" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -645,6 +648,8 @@
     <Content Include="Views\TimKiem\KQTimKiemPartial.cshtml" />
     <Content Include="Views\Layout\AdminLayout.cshtml" />
     <Content Include="Views\Admin\TrangChu.cshtml" />
+    <Content Include="Views\QuanLySanPham\Index.cshtml" />
+    <Content Include="Views\QuanLySanPham\TaoMoi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -658,9 +663,12 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Content\CssFont\css\" />
+    <Folder Include="Content\CssFont\fonts\" />
+    <Folder Include="Content\CssFont\less\" />
+    <Folder Include="Content\CssFont\scss\" />
     <Folder Include="Content\Layouts\css\" />
     <Folder Include="Content\Layouts\images\" />
-    <Folder Include="Content\Layouts\js\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
