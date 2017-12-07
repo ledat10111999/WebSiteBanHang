@@ -12,8 +12,8 @@
   } );
 </script>
 <h2>TaoMoi</h2>
-
-@using (Html.BeginForm()) 
+@*Chú ý thêm phần enctype*@
+@using (Html.BeginForm("TaoMoi","QuanLySanPham",FormMethod.Post, new { @enctype="multipart/form-data"}))
 {
     @Html.AntiForgeryToken()
     
@@ -64,8 +64,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.HinhAnh, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.HinhAnh, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.HinhAnh, "", new { @class = "text-danger" })
+                <input name="HinhAnh" type="file" />
+                <span style="color:red">@ViewBag.upload</span>
             </div>
         </div>
 
