@@ -36,5 +36,13 @@ namespace WebSiteBanHang.Controllers
             // Gọi về hàm get tìm kiếm
             return RedirectToAction("KQTimKiem",new { @sTuKhoa=sTuKhoa});
         }
+
+
+        public ActionResult KQTimKiemPartial(string sTuKhoa)
+        {
+            // tìm kiếm theo tên sản phẩm
+            var lstSP = db.SanPhams.Where(n => n.TenSP.Contains(sTuKhoa));
+            return PartialView(lstSP.OrderBy(n => n.DonGia));
+        }
     }
 }
