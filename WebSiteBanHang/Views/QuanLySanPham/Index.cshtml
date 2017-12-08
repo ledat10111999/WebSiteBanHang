@@ -18,33 +18,40 @@
     grid.Column("MaSP","Tên sản phẩm"),
     grid.Column("TenSP","Tên SP"),
     //grid.Column("MoTa","Mô tả",format:p=>Html.Raw(p.MoTa)),
-    grid.Column("HinhAnh", "Hình ảnh", format: p => Html.Raw("<img src=\"../Content/HinhAnhSP/" +p.HinhAnh + "\" style=\"height:100px;width:150px\">"))
+    grid.Column("HinhAnh", "Hình ảnh", format: p => Html.Raw("<img src=\"../Content/HinhAnhSP/" +p.HinhAnh + "\" style=\"height:100px;width:150px\">")),
+    grid.Column(format:p=>Html.ActionLink("Chỉnh sửa","ChinhSua",new { id=p.MaSP})),
+    grid.Column(format:p=>Html.ActionLink("Xóa","Xoa",new { id = p.MaSP}))
     )
 )
 
 
 <style>
     .gridHead {
+        
         background-color:green
     }
-    .gridHead {
+    .gridHead > th > a{
         color:white
     }
 
-    .gridRow{
+    /*.gridRow{
         color:black;
         background-color:blue
-    }
+    }*/
 
     .gridAltRow{
-        color:black;
-        background-color:yellow
+        border:1px solid black;
     }
 
     .gridFooter{
         font-weight:bold
     }
-    .divTable{
+    .gridTable{
+        width:100%;
         border:1px solid black
+    }
+    .gridTable > th, td {
+        border: 1px solid orange;
+         text-align: center;
     }
 </style>

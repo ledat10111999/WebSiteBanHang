@@ -28,13 +28,13 @@ nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
 img{max-width:100%;}
 /*end reset*/
 body{
-	background: url(../images/bg.jpg) no-repeat 0px 0px;
+	/*background: url(../images/bg.jpg) no-repeat 0px 0px;
 	font-family: 'Open Sans', sans-serif;
 	text-align: center;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
-	-o-background-size:cover;
+	-o-background-size:cover;*/
 }
 .wrap{
 	margin: 0 auto;
