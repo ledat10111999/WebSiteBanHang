@@ -13,7 +13,7 @@ namespace WebSiteBanHang.Controllers
         // GET: QuanLySanPham
         public ActionResult Index()
         {
-            return View(db.SanPhams.Where(n=>n.DaXoa==false));
+            return View(db.SanPhams.Where(n=>n.DaXoa==false).OrderByDescending(n=>n.MaSP));
         }
         [HttpGet]
         public ActionResult TaoMoi()
@@ -24,9 +24,10 @@ namespace WebSiteBanHang.Controllers
             ViewBag.MaNSX = new SelectList(db.NhaSanXuats.OrderBy(n => n.TenNSX), "MaNSX", "TenNSX");
             return View();
         }
-
+        //Tat bat loi
+        [ValidateInput(false)]
         [HttpPost]
-        public ActionResult TaoMoi(HttpPostedFileBase HinhAnh)
+        public ActionResult TaoMoi(SanPham sp,HttpPostedFileBase HinhAnh)
         {
 
             ViewBag.MaNCC = new SelectList(db.NhaCungCaps.OrderBy(n => n.TenNCC), "MaNCC", "TenNCC");
@@ -48,8 +49,11 @@ namespace WebSiteBanHang.Controllers
                 else
                 {
                     HinhAnh.SaveAs(path);
+                    sp.HinhAnh = fileName;
                 }
             }
+            db.SanPhams.Add(sp);
+            db.SaveChanges();
 
             return View();
         }
