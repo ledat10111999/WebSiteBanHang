@@ -220,6 +220,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\QuanLySanPhamController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
+    <Compile Include="Controllers\SubmitListModelController.cs" />
     <Compile Include="Controllers\TimKiemController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -739,6 +740,8 @@
     <Content Include="Views\QuanLySanPham\TaoMoi.cshtml" />
     <Content Include="Views\QuanLySanPham\ChinhSua.cshtml" />
     <Content Include="Views\QuanLySanPham\Xoa.cshtml" />
+    <Content Include="Views\DemoJQuery\TestMethodJquery.cshtml" />
+    <Content Include="Views\SubmitListModel\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

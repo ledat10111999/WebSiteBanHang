@@ -13,5 +13,11 @@ namespace WebSiteBanHang.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult TestMethodJquery()
+        {
+            return View();
+        }
     }
 }
