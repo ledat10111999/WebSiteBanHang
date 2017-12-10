@@ -744,6 +744,8 @@
     <Content Include="Views\DemoJQuery\TestMethodJquery.cshtml" />
     <Content Include="Views\SubmitListModel\Index.cshtml" />
     <Content Include="Views\QuanLyPhieuNhap\NhapHang.cshtml" />
+    <Content Include="Views\QuanLyPhieuNhap\DSSPHetHang.cshtml" />
+    <Content Include="Views\QuanLyPhieuNhap\NhapHangDon.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
