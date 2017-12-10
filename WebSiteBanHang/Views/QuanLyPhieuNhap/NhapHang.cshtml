@@ -140,4 +140,48 @@
         $(this).closest(".trAppended").remove();
         CapNhatID();
     });
+
+
+    // Kiểm tra validation
+    $("#btnNhapHang").click(function () {
+        loi=0
+        if (kiemtraDonGia() == false) {
+            
+            alert("Đơn giá không hợp lệ!");
+            loi++;
+        }
+        if (kiemTraSoLuong() == false) {
+            alert("Số lượng không hợp lệ!");
+            loi++
+        }
+        if (loi > 0) {
+            //ngăn không cho submit về server
+            return false;
+        }
+    });
+
+    // Kiểm tra đơn giá
+    function kiemtraDonGia() {
+        var bl = true;
+        $(".txtDonGia").each(function () {
+            var giatri = $(this).val();
+            if(isNaN(giatri)==true)
+            {
+                
+                bl = false;
+            }
+        });
+        return bl;
+    }
+    function kiemTraSoLuong() {
+        var bl = true;
+        $(".txtSoLuong").each(function () {
+            var giatri = $(this).val();
+            if (isNaN(giatri) == true) {
+                
+                bl = false;
+            }
+        });
+        return bl;
+    }
 </script>
