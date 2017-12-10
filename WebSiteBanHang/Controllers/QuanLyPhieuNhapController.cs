@@ -32,8 +32,13 @@ namespace WebSiteBanHang.Controllers
             db.PhieuNhaps.Add(model);
             db.SaveChanges();
             // SaveChanges lần đầu để  sinh ra mã phiếu nhập gán cho lstChiTietPhieuNhap
+            SanPham sp;
             foreach(var item in lstModel)
             {
+                // Cập nhật số lượng tồn
+                // vì sản phẩm trong lstModel chắc chắn có nên k tạo new SanPham
+                sp = db.SanPhams.Single(n => n.MaSP == item.MaSP);
+                sp.SoLuongTon +=  item.SoLuongNhap;
                 // Gán mã phiếu nhập cho từng chi tiết phiếu nhập
                 item.MaPN = model.MaPN;
             }
