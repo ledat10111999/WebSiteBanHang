@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using WebSiteBanHang.Models;
@@ -60,11 +61,28 @@ namespace WebSiteBanHang.Controllers
             // Lấy ds chi tiết đơn hàng để hiển thị cho người dùng thấy
             var lstChiTietDH = db.ChiTietDonDatHangs.Where(n => n.MaDDH == ddh.MaDDH);
             ViewBag.ListChiTietDH = lstChiTietDH;
-
+            GuiEmail("Xác nhận đơn hàng", "ducnghia1205@gmail.com", "kiembtcmp@gmail.com", "zewang.help", "Đơn hàng của bạn đã được đặt thành công");
             return View(ddhUpdate);
         }
 
-
+        public void GuiEmail(string Title, string ToEmail, string FromEmail, string PassWord, string Content)
+        {
+            // goi email
+            MailMessage mail = new MailMessage();
+            mail.To.Add(ToEmail); // Địa chỉ nhận
+            mail.From = new MailAddress(ToEmail); // Địa chửi gửi
+            mail.Subject = Title;  // tiêu đề gửi
+            mail.Body = Content;                 // Nội dung
+            mail.IsBodyHtml = true;
+            SmtpClient smtp = new SmtpClient();
+            smtp.Host = "smtp.gmail.com"; // host gửi của Gmail
+            smtp.Port = 587;               //port của Gmail
+            smtp.UseDefaultCredentials = false;
+            smtp.Credentials = new System.Net.NetworkCredential
+            (FromEmail, PassWord);//Tài khoản password người gửi
+            smtp.EnableSsl = true;   //kích hoạt giao tiếp an toàn SSL
+            smtp.Send(mail);   //Gửi mail đi
+        }
 
         protected override void Dispose(bool disposing)
         {
