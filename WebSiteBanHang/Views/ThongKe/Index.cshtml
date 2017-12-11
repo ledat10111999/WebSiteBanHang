@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<h1>Thống kê</h1>
+<br />
+
+<h2>Tổng doanh thu: <font color="red">@ViewBag.TongDoanhThu.ToString("#,##") VNĐ</font></h2>
+<br />
+
+<h2>Tổng số lượng đơn đặt hàng: <font color="red">@ViewBag.TongDDH (đơn)</font></h2>
+<br />
+
+<h2>Tổng số lượng thành viên: <font color="red">@ViewBag.TongThanhVien (thành viên)</font></h2>
+<br />
+
+<h2>Tổng doanh thu tháng 12/2017: <font color="red">@ViewBag.TongDoanhThuTheoThang.ToString("#,##") VNĐ</font></h2>
+<br />
