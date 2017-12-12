@@ -31,11 +31,6 @@ namespace WebSiteBanHang.Controllers
             }
             return RedirectToAction("Index");
         }
-        [HttpGet]
-        public ActionResult SuaQuyen(string maQuyen)
-        {
-            Quyen quyen = db.Quyens.SingleOrDefault(n=>n.MaQuyen==maQuyen);
-            return View(quyen);
-        }
+
     }
 }
