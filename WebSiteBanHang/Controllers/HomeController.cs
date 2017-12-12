@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using WebSiteBanHang.Models;
 using CaptchaMvc.HtmlHelpers;
 using CaptchaMvc;
+using System.Web.Security;
 
 namespace WebSiteBanHang.Controllers
 {
@@ -98,24 +99,68 @@ namespace WebSiteBanHang.Controllers
         [HttpPost]
         public ActionResult DangNhap(FormCollection f)
         {
-            //Kiểm tra tên đăng nhập và mật khẩu
-            string sTaiKhoan = f["txtTaiKhoan"].ToString();
-            string sMatKhau = f["txtMatKhau"].ToString();
+            ////Kiểm tra tên đăng nhập và mật khẩu
+            //string sTaiKhoan = f["txtTaiKhoan"].ToString();
+            //string sMatKhau = f["txtMatKhau"].ToString();
 
-            ThanhVien tv = db.ThanhViens.SingleOrDefault(n=>n.TaiKhoan==sTaiKhoan && n.MatKhau==sMatKhau);
+            //ThanhVien tv = db.ThanhViens.SingleOrDefault(n=>n.TaiKhoan==sTaiKhoan && n.MatKhau==sMatKhau);
 
+            //if (tv != null)
+            //{
+            //    Session["TaiKhoan"] = tv;
+            //    return Content("<script>window.location.reload()</script>");
+            //}
+            //return Content("Tài khoản hoặc mật khẩu không đúng!");
+            string taikhoan = f["txtTaiKhoan"].ToString();
+            string matkhau = f["txtMatKhau"].ToString();
+
+            ThanhVien tv = db.ThanhViens.SingleOrDefault(n=>n.TaiKhoan==taikhoan && n.MatKhau==matkhau);
             if (tv != null)
             {
-                Session["TaiKhoan"] = tv;
+                //Láy ra List quyền của thành viên tương ứng với loại thành viên
+                var lstQuyen = db.LoaiThanhVien_Quyen.Where(n => n.MaLoaiTV == tv.MaLoaiTV);
+                //Duyệt list quyền
+                string Quyen = "";
+                foreach(var item in lstQuyen)
+                {
+                    Quyen += item.MaQuyen + ",";
+                }
+                // Cắt dấu ","
+                Quyen = Quyen.Substring(0, Quyen.Length - 1);
+                PhanQuyen(tv.TaiKhoan,Quyen);
                 return Content("<script>window.location.reload()</script>");
             }
             return Content("Tài khoản hoặc mật khẩu không đúng!");
+
+        }
+
+        public void PhanQuyen(string TaiKhoan, string Quyen)
+        {
+            FormsAuthentication.Initialize();
+            var ticket = new FormsAuthenticationTicket(1,
+                                          TaiKhoan, //user
+                                          DateTime.Now, //Thời gian bắt đầu
+                                          DateTime.Now.AddHours(3), //Thời gian kết thúc
+                                          false, //Ghi nhớ?
+                                          Quyen, // "DangKy,QuanLyDonHang,QuanLySanPham"
+                                          FormsAuthentication.FormsCookiePath);
+
+            var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(ticket));
+            if (ticket.IsPersistent) cookie.Expires = ticket.Expiration;
+            Response.Cookies.Add(cookie);
+        }
+
+        // Tạo trang ngăn chặn truy cập
+        public ActionResult LoiPhanQuyen()
+        {
+            return View();
         }
 
         public ActionResult Dangxuat()
         {
             //Gán về null
             Session["TaiKhoan"] = null;
+            FormsAuthentication.SignOut();
             return RedirectToAction("Index");
         }
     }

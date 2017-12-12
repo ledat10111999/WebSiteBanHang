@@ -7,9 +7,11 @@ using WebSiteBanHang.Models;
 
 namespace WebSiteBanHang.Controllers
 {
+    
     public class KhachHangController : Controller
     {
         QuanLyBanHangEntities db = new QuanLyBanHangEntities();
+        [Authorize(Roles ="QLKhachHang")]
         public ActionResult Index()
         {
             //Cach 1:
@@ -18,7 +20,7 @@ namespace WebSiteBanHang.Controllers
             var lstKH = db.KhachHangs;
             return View(lstKH);
         }
-
+        [Authorize(Roles ="QLDonHang")]
         public ActionResult Index1()
         {
             var lstKH = from KH in db.KhachHangs select KH;

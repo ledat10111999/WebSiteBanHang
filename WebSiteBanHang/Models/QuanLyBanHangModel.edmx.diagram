@@ -30,6 +30,10 @@
         <AssociationConnector Association="QuanLyBanHangModel.FK_PhieuNhap_ToTable" />
         <AssociationConnector Association="QuanLyBanHangModel.FK_SanPham_NhaCungCap" />
         <AssociationConnector Association="QuanLyBanHangModel.FK_SanPham_NhaSanXuat" />
+        <EntityTypeShape EntityType="QuanLyBanHangModel.LoaiThanhVien_Quyen" Width="1.5" PointX="3.75" PointY="25" />
+        <EntityTypeShape EntityType="QuanLyBanHangModel.Quyen" Width="1.5" PointX="1.5" PointY="28.25" />
+        <AssociationConnector Association="QuanLyBanHangModel.FK_LoaiThanhVien_Quyen_LoaiThanhVien" />
+        <AssociationConnector Association="QuanLyBanHangModel.FK_LoaiThanhVien_Quyen_Quyen" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

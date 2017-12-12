@@ -252,6 +252,9 @@
     <Compile Include="Models\LoaiThanhVien.cs">
       <DependentUpon>QuanLyBanHangModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LoaiThanhVien_Quyen.cs">
+      <DependentUpon>QuanLyBanHangModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Metadata\ThanhVien.metadata.cs" />
     <Compile Include="Models\NhaCungCap.cs">
@@ -277,6 +280,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyBanHangModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Quyen.cs">
+      <DependentUpon>QuanLyBanHangModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SanPham.cs">
       <DependentUpon>QuanLyBanHangModel.tt</DependentUpon>
@@ -753,6 +759,7 @@
     <Content Include="Views\QuanLyDonHang\DaGiaoDaThanhToan.cshtml" />
     <Content Include="Views\QuanLyDonHang\DuyetDonHang.cshtml" />
     <Content Include="Views\ThongKe\Index.cshtml" />
+    <Content Include="Views\Home\LoiPhanQuyen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
