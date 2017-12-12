@@ -221,6 +221,7 @@
     <Compile Include="Controllers\QuanLyDonHangController.cs" />
     <Compile Include="Controllers\QuanLyPhieuNhapController.cs" />
     <Compile Include="Controllers\QuanLySanPhamController.cs" />
+    <Compile Include="Controllers\QuyenController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
     <Compile Include="Controllers\SubmitListModelController.cs" />
     <Compile Include="Controllers\ThongKeController.cs" />
@@ -760,6 +761,9 @@
     <Content Include="Views\QuanLyDonHang\DuyetDonHang.cshtml" />
     <Content Include="Views\ThongKe\Index.cshtml" />
     <Content Include="Views\Home\LoiPhanQuyen.cshtml" />
+    <Content Include="Views\Quyen\Index.cshtml" />
+    <Content Include="Views\Quyen\ThemQuyen.cshtml" />
+    <Content Include="Views\Quyen\SuaQuyen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

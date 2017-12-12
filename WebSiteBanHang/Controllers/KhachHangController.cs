@@ -48,6 +48,16 @@ namespace WebSiteBanHang.Controllers
             lstTV = db.ThanhViens.OrderByDescending(n => n.TaiKhoan).ToList();
             return View(lstTV);
         }
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (db != null)
+                    db.Dispose();
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
     }
 
 }
