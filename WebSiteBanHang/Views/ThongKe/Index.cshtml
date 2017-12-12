@@ -18,3 +18,13 @@
 
 <h2>Tổng doanh thu tháng 12/2017: <font color="red">@ViewBag.TongDoanhThuTheoThang.ToString("#,##") VNĐ</font></h2>
 <br />
+@using (Ajax.BeginForm("Index", "ThongKe", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "ThongBao" }))
+{
+    <input type="text" name="txtThang" value="Nhập tháng..." />
+    <input type="text" name="txtNam" value="Nhập năm..." />
+    <input type="submit" value="Thống kê" />
+    <h2 id="ThongBao">Tổng doanh thu: <font color="red"></font></h2>
+}
+
+
+<br />

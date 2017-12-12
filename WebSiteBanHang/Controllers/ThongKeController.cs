@@ -49,7 +49,14 @@ namespace WebSiteBanHang.Controllers
             }
             return TongTien;
         }
-
+        [HttpPost]
+        public ActionResult Index(FormCollection f)
+        {
+            int Thang = Convert.ToInt32(f["txtThang"].ToString());
+            int Nam = Convert.ToInt32(f["txtNam"].ToString());
+            decimal? tongtien = ThongKeDoanhThuTheoThang(Thang, Nam);
+            return Content(tongtien.ToString());
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
