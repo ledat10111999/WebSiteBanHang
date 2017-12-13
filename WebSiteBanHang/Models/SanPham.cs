@@ -43,6 +43,7 @@ namespace WebSiteBanHang.Models
         public string HinhAnh2 { get; set; }
         public string HinhAnh3 { get; set; }
         public string HinhAnh4 { get; set; }
+        public Nullable<int> MaThanhVien { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BinhLuan> BinhLuans { get; set; }
@@ -53,5 +54,6 @@ namespace WebSiteBanHang.Models
         public virtual LoaiSanPham LoaiSanPham { get; set; }
         public virtual NhaCungCap NhaCungCap { get; set; }
         public virtual NhaSanXuat NhaSanXuat { get; set; }
+        public virtual ThanhVien ThanhVien { get; set; }
     }
 }

@@ -18,7 +18,9 @@ namespace WebSiteBanHang.Models
         public ThanhVien()
         {
             this.BinhLuans = new HashSet<BinhLuan>();
+            this.HoaDonMuaTins = new HashSet<HoaDonMuaTin>();
             this.KhachHangs = new HashSet<KhachHang>();
+            this.SanPhams = new HashSet<SanPham>();
         }
     
         public int MaThanhVien { get; set; }
@@ -31,11 +33,17 @@ namespace WebSiteBanHang.Models
         public string CauHoi { get; set; }
         public string CauTraLoi { get; set; }
         public Nullable<int> MaLoaiTV { get; set; }
+        public Nullable<int> SoLuongTin { get; set; }
+        public Nullable<int> SoLuongTinDaDang { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BinhLuan> BinhLuans { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HoaDonMuaTin> HoaDonMuaTins { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KhachHang> KhachHangs { get; set; }
         public virtual LoaiThanhVien LoaiThanhVien { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SanPham> SanPhams { get; set; }
     }
 }

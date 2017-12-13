@@ -243,6 +243,9 @@
     <Compile Include="Models\DonDatHang.cs">
       <DependentUpon>QuanLyBanHangModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\HoaDonMuaTin.cs">
+      <DependentUpon>QuanLyBanHangModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\itemGioHang.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\KhachHang.cs">
@@ -287,6 +290,9 @@
       <DependentUpon>QuanLyBanHangModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SanPham.cs">
+      <DependentUpon>QuanLyBanHangModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>QuanLyBanHangModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ThanhVien.cs">
@@ -766,6 +772,7 @@
     <Content Include="Views\Quyen\ThemQuyen.cshtml" />
     <Content Include="Views\PhanQuyen\Index.cshtml" />
     <Content Include="Views\PhanQuyen\PhanQuyen.cshtml" />
+    <Content Include="Views\QuanLySanPham\KQTimKiemPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -12,9 +12,16 @@ namespace WebSiteBanHang.Controllers
     {
         QuanLyBanHangEntities db = new QuanLyBanHangEntities();
         // GET: QuanLySanPham
+        [HttpGet]
         public ActionResult Index()
         {
-            return View(db.SanPhams.Where(n=>n.DaXoa==false).OrderByDescending(n=>n.MaSP));
+            return View(db.SanPhams.Where(n=>n.DaXoa==false).OrderBy(n=>n.MaSP).ToList());
+        }
+        [HttpPost]
+        public ActionResult Index(string sTuKhoa)
+        {
+            List<SanPham> lstSP = db.SanPhams.Where(n => n.TenSP.Contains(sTuKhoa)).ToList();
+            return View(lstSP.OrderBy(n => n.MaSP)); ;
         }
         [HttpGet]
         public ActionResult TaoMoi()
