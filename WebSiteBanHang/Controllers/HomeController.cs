@@ -128,6 +128,7 @@ namespace WebSiteBanHang.Controllers
                 // Cắt dấu ","
                 Quyen = Quyen.Substring(0, Quyen.Length - 1);
                 PhanQuyen(tv.TaiKhoan,Quyen);
+                Session["TaiKhoan"] = tv;
                 return Content("<script>window.location.reload()</script>");
             }
             return Content("Tài khoản hoặc mật khẩu không đúng!");
