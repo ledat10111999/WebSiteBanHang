@@ -11,11 +11,13 @@ namespace WebSiteBanHang.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class HoaDonMuaTin
     {
         public int Id { get; set; }
         public Nullable<int> MaThanhVien { get; set; }
+
         public Nullable<System.DateTime> NgayMua { get; set; }
         public Nullable<int> SoLuong { get; set; }
         public Nullable<decimal> DonGia { get; set; }

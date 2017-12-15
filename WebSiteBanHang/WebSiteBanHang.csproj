@@ -215,6 +215,7 @@
     <Compile Include="Controllers\DemoCssController.cs" />
     <Compile Include="Controllers\DemoJQueryController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
+    <Compile Include="Controllers\HoaDonMuaTinsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhachHangController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -225,8 +226,10 @@
     <Compile Include="Controllers\QuyenController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
     <Compile Include="Controllers\SubmitListModelController.cs" />
+    <Compile Include="Controllers\ThanhViensController.cs" />
     <Compile Include="Controllers\ThongKeController.cs" />
     <Compile Include="Controllers\TimKiemController.cs" />
+    <Compile Include="Controllers\TinhTrangGiaoHangController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -296,6 +299,12 @@
       <DependentUpon>QuanLyBanHangModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ThanhVien.cs">
+      <DependentUpon>QuanLyBanHangModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TinhTrangThanhVien.cs">
+      <DependentUpon>QuanLyBanHangModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TrangThaiGiaoHang.cs">
       <DependentUpon>QuanLyBanHangModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -772,7 +781,22 @@
     <Content Include="Views\Quyen\ThemQuyen.cshtml" />
     <Content Include="Views\PhanQuyen\Index.cshtml" />
     <Content Include="Views\PhanQuyen\PhanQuyen.cshtml" />
-    <Content Include="Views\QuanLySanPham\KQTimKiemPartial.cshtml" />
+    <Content Include="Views\Quyen\SuaQuyen.cshtml" />
+    <Content Include="Views\TinhTrangGiaoHang\XacNhan.cshtml" />
+    <Content Include="Views\TinhTrangGiaoHang\GiaoHang.cshtml" />
+    <Content Include="Views\TinhTrangGiaoHang\ThanhCong.cshtml" />
+    <Content Include="Views\TinhTrangGiaoHang\Huy.cshtml" />
+    <Content Include="Views\TinhTrangGiaoHang\DuyetDonHang.cshtml" />
+    <Content Include="Views\HoaDonMuaTins\Create.cshtml" />
+    <Content Include="Views\HoaDonMuaTins\Delete.cshtml" />
+    <Content Include="Views\HoaDonMuaTins\Details.cshtml" />
+    <Content Include="Views\HoaDonMuaTins\Edit.cshtml" />
+    <Content Include="Views\HoaDonMuaTins\Index.cshtml" />
+    <Content Include="Views\ThanhViens\Create.cshtml" />
+    <Content Include="Views\ThanhViens\Delete.cshtml" />
+    <Content Include="Views\ThanhViens\Details.cshtml" />
+    <Content Include="Views\ThanhViens\Edit.cshtml" />
+    <Content Include="Views\ThanhViens\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

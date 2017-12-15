@@ -35,6 +35,7 @@ namespace WebSiteBanHang.Models
         public Nullable<int> MaLoaiTV { get; set; }
         public Nullable<int> SoLuongTin { get; set; }
         public Nullable<int> SoLuongTinDaDang { get; set; }
+        public Nullable<int> TinhTrang { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BinhLuan> BinhLuans { get; set; }
@@ -45,5 +46,6 @@ namespace WebSiteBanHang.Models
         public virtual LoaiThanhVien LoaiThanhVien { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SanPham> SanPhams { get; set; }
+        public virtual TinhTrangThanhVien TinhTrangThanhVien { get; set; }
     }
 }

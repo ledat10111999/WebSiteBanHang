@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebSiteBanHang.Models;
@@ -28,9 +29,26 @@ namespace WebSiteBanHang.Controllers
             {
                 db.Quyens.Add(quyen);
                 db.SaveChanges();
+                return RedirectToAction("Index");
             }
-            return RedirectToAction("Index");
+            return View(quyen);
+            
         }
+        [HttpGet]
+        public ActionResult SuaQuyen(string maquyen)
+        {
+            if (maquyen == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Quyen quyen = db.Quyens.SingleOrDefault(n => n.MaQuyen.Contains(maquyen));
+            if (quyen == null)
+            {
+                return HttpNotFound();
+            }
+            return View(quyen);
+        }
+
 
     }
 }

@@ -129,6 +129,11 @@ namespace WebSiteBanHang.Controllers
                 Quyen = Quyen.Substring(0, Quyen.Length - 1);
                 PhanQuyen(tv.TaiKhoan,Quyen);
                 Session["TaiKhoan"] = tv;
+                if (tv.MaLoaiTV == 2)
+                {
+                    string chuoi = "<script>window.opener.location.href = \'@Url.Action(\"Index\", \"QuanLySanPham\")\'</script>";
+                    return Content(chuoi);
+                }
                 return Content("<script>window.location.reload()</script>");
             }
             return Content("Tài khoản hoặc mật khẩu không đúng!");

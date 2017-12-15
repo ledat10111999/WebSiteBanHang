@@ -27,9 +27,10 @@ namespace WebSiteBanHang.Controllers
         public ActionResult TaoMoi()
         {
             //Load dropdownlist nhà cung cấp và loại sản phẩm
-            ViewBag.MaNCC = new SelectList(db.NhaCungCaps.OrderBy(n => n.TenNCC), "MaNCC", "TenNCC");
+            //ViewBag.MaNCC = new SelectList(db.NhaCungCaps.OrderBy(n => n.TenNCC), "MaNCC", "TenNCC");
+            //ViewBag.MaNSX = new SelectList(db.NhaSanXuats.OrderBy(n => n.TenNSX), "MaNSX", "TenNSX");
+
             ViewBag.MaLoaiSP = new SelectList(db.LoaiSanPhams.OrderBy(n => n.TenLoai), "MaLoaiSP", "TenLoai");
-            ViewBag.MaNSX = new SelectList(db.NhaSanXuats.OrderBy(n => n.TenNSX), "MaNSX", "TenNSX");
             return View();
         }
         //Tat bat loi
@@ -38,12 +39,13 @@ namespace WebSiteBanHang.Controllers
         public ActionResult TaoMoi(SanPham sp,HttpPostedFileBase HinhAnh)
         {
 
-            ViewBag.MaNCC = new SelectList(db.NhaCungCaps.OrderBy(n => n.TenNCC), "MaNCC", "TenNCC");
+            //ViewBag.MaNCC = new SelectList(db.NhaCungCaps.OrderBy(n => n.TenNCC), "MaNCC", "TenNCC");
+            //ViewBag.MaNSX = new SelectList(db.NhaSanXuats.OrderBy(n => n.TenNSX), "MaNSX", "TenNSX");
+
             ViewBag.MaLoaiSP = new SelectList(db.LoaiSanPhams.OrderBy(n => n.TenLoai), "MaLoaiSP", "TenLoai");
-            ViewBag.MaNSX = new SelectList(db.NhaSanXuats.OrderBy(n => n.TenNSX), "MaNSX", "TenNSX");
 
             //Kiểm tra hình tồn tại trong csdl chưa 
-            if(HinhAnh.ContentLength > 0)
+            if (HinhAnh.ContentLength > 0)
             {
                 // Lấy tên hình
                 var fileName = Path.GetFileName(HinhAnh.FileName);
@@ -60,6 +62,9 @@ namespace WebSiteBanHang.Controllers
                     sp.HinhAnh = fileName;
                 }
             }
+            ThanhVien tv = db.ThanhViens.SingleOrDefault(n => n.MaThanhVien == sp.MaThanhVien);
+            tv.SoLuongTin--;
+            tv.SoLuongTinDaDang++;
             db.SanPhams.Add(sp);
             db.SaveChanges();
 
@@ -76,16 +81,17 @@ namespace WebSiteBanHang.Controllers
             }
 
             SanPham sp = db.SanPhams.SingleOrDefault(n => n.MaSP == id);
-            if(sp == null)
+            if (sp == null)
             {
                 return HttpNotFound();
             }
 
 
             //Load dropdownlist nhà cung cấp và loại sản phẩm
-            ViewBag.MaNCC = new SelectList(db.NhaCungCaps.OrderBy(n => n.TenNCC), "MaNCC", "TenNCC",sp.MaNCC);
-            ViewBag.MaLoaiSP = new SelectList(db.LoaiSanPhams.OrderBy(n => n.TenLoai), "MaLoaiSP", "TenLoai",sp.MaLoaiSP);
-            ViewBag.MaNSX = new SelectList(db.NhaSanXuats.OrderBy(n => n.TenNSX), "MaNSX", "TenNSX",sp.MaNSX);
+            //ViewBag.MaNCC = new SelectList(db.NhaCungCaps.OrderBy(n => n.TenNCC), "MaNCC", "TenNCC", sp.MaNCC);
+            //ViewBag.MaNSX = new SelectList(db.NhaSanXuats.OrderBy(n => n.TenNSX), "MaNSX", "TenNSX", sp.MaNSX);
+
+            ViewBag.MaLoaiSP = new SelectList(db.LoaiSanPhams.OrderBy(n => n.TenLoai), "MaLoaiSP", "TenLoai", sp.MaLoaiSP);
 
             return View(sp);
         }
@@ -94,9 +100,10 @@ namespace WebSiteBanHang.Controllers
         public ActionResult ChinhSua(SanPham model)
         {
             //Load dropdownlist nhà cung cấp và loại sản phẩm
-            ViewBag.MaNCC = new SelectList(db.NhaCungCaps.OrderBy(n => n.TenNCC), "MaNCC", "TenNCC", model.MaNCC);
+            //ViewBag.MaNCC = new SelectList(db.NhaCungCaps.OrderBy(n => n.TenNCC), "MaNCC", "TenNCC", model.MaNCC);
+            //ViewBag.MaNSX = new SelectList(db.NhaSanXuats.OrderBy(n => n.TenNSX), "MaNSX", "TenNSX", model.MaNSX);
+
             ViewBag.MaLoaiSP = new SelectList(db.LoaiSanPhams.OrderBy(n => n.TenLoai), "MaLoaiSP", "TenLoai", model.MaLoaiSP);
-            ViewBag.MaNSX = new SelectList(db.NhaSanXuats.OrderBy(n => n.TenNSX), "MaNSX", "TenNSX", model.MaNSX);
 
             db.Entry(model).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
@@ -138,7 +145,7 @@ namespace WebSiteBanHang.Controllers
         }
 
         [HttpPost]
-        public ActionResult Xoa(int? id,FormCollection f)
+        public ActionResult Xoa(int? id, FormCollection f)
         {
             if (id == null)
             {

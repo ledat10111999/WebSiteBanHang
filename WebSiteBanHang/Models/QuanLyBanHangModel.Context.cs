@@ -41,5 +41,7 @@ namespace WebSiteBanHang.Models
         public virtual DbSet<SanPham> SanPhams { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<ThanhVien> ThanhViens { get; set; }
+        public virtual DbSet<TinhTrangThanhVien> TinhTrangThanhViens { get; set; }
+        public virtual DbSet<TrangThaiGiaoHang> TrangThaiGiaoHangs { get; set; }
     }
 }
